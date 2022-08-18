@@ -7,10 +7,17 @@ void print_double(double a);
 void print_str(char* a);
 
 #define print(a) _Generic((a), \
-                           int: print_int, \
-                           float: print_float, \
-                           double: print_double, \
-                           default: print_str) \
-                           (a);
+                         int: print_int, \
+                         float: print_float, \
+                         double: print_double, \
+                         default: print_str) \
+                         (a);
+
+#define type(a) _Generic((a), \
+                         int: "int", \
+                         long: "long", \
+                         float: "float", \
+                         double: "double", \
+                         char*: "string")
 
 #endif // pythonificator_h_INCLUDED
